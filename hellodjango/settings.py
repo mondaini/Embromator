@@ -16,7 +16,7 @@ DATABASES = {
         'USER': 'teste',                      # Not used with sqlite3.
         'PASSWORD': 'testee',                  # Not used with sqlite3.
         'HOST': 'ds029807.mongolab.com',                      # Set to empty string for localhost. Not used with sqlite3.
-        'PORT': '29807',                      # Set to empty string for default. Not used with sqlite3.
+        'PORT': 29807,                      # Set to empty string for default. Not used with sqlite3.
     }
 }
 
@@ -33,7 +33,7 @@ TIME_ZONE = 'America/Chicago'
 # http://www.i18nguy.com/unicode/language-identifiers.html
 LANGUAGE_CODE = 'en-us'
 
-SITE_ID = 1
+SITE_ID = u'4f38de68a90d2801e800000d'
 
 # If you set this to False, Django will make some optimizations so as not
 # to load the internationalization machinery.
@@ -106,6 +106,7 @@ TEMPLATE_DIRS = (
     # Put strings here, like "/home/html/django_templates" or "C:/www/django/templates".
     # Always use forward slashes, even on Windows.
     # Don't forget to use absolute paths, not relative paths.
+    '/Users/filipecarvalhomondaini/Documents/projetos/hellodjango/hellodjango/templates'
 )
 
 INSTALLED_APPS = (
@@ -115,9 +116,9 @@ INSTALLED_APPS = (
     'django.contrib.sites',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'gunicorn'
-    # Uncomment the next line to enable the admin:
-    #'django.contrib.admin',
+    'django.contrib.admin',
+    'gunicorn',
+    'django_mongodb_engine',
     # Uncomment the next line to enable admin documentation:
     #'django.contrib.admindocs',
 )
