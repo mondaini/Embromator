@@ -1,4 +1,5 @@
 # Django settings for embromator project.
+from os.path import abspath
 
 DEBUG = True
 TEMPLATE_DEBUG = DEBUG
@@ -6,6 +7,8 @@ TEMPLATE_DEBUG = DEBUG
 ADMINS = (
     # ('Your Name', 'your_email@example.com'),
 )
+
+LOCAL_FILE = abspath
 
 MANAGERS = ADMINS
 
@@ -106,7 +109,7 @@ TEMPLATE_DIRS = (
     # Put strings here, like "/home/html/django_templates" or "C:/www/django/templates".
     # Always use forward slashes, even on Windows.
     # Don't forget to use absolute paths, not relative paths.
-    '/Users/filipecarvalhomondaini/Documents/projetos/embromator/embromator/templates'
+    LOCAL_FILE('templates')
 )
 
 INSTALLED_APPS = (
