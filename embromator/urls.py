@@ -11,8 +11,8 @@ post_list = ListView.as_view(model=Post)
 
 urlpatterns = patterns('',
     # Examples:
-    # url(r'^$', 'hellodjango.views.home', name='home'),
-    # url(r'^hellodjango/', include('hellodjango.foo.urls')),
+    # url(r'^$', 'embromator.views.home', name='home'),
+    # url(r'^embromator/', include('embromator.foo.urls')),
 
     # Uncomment the admin/doc line below to enable admin documentation:
     # url(r'^admin/doc/', include('django.contrib.admindocs.urls')),

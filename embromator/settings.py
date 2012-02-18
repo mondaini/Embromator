@@ -1,4 +1,4 @@
-# Django settings for hellodjango project.
+# Django settings for embromator project.
 
 DEBUG = True
 TEMPLATE_DEBUG = DEBUG
@@ -100,13 +100,13 @@ MIDDLEWARE_CLASSES = (
     'django.contrib.messages.middleware.MessageMiddleware',
 )
 
-ROOT_URLCONF = 'hellodjango.urls'
+ROOT_URLCONF = 'embromator.urls'
 
 TEMPLATE_DIRS = (
     # Put strings here, like "/home/html/django_templates" or "C:/www/django/templates".
     # Always use forward slashes, even on Windows.
     # Don't forget to use absolute paths, not relative paths.
-    '/Users/filipecarvalhomondaini/Documents/projetos/hellodjango/hellodjango/templates'
+    '/Users/filipecarvalhomondaini/Documents/projetos/embromator/embromator/templates'
 )
 
 INSTALLED_APPS = (
@@ -145,3 +145,8 @@ LOGGING = {
         },
     }
 }
+
+try:
+    from local_settings import *
+except:
+    pass
