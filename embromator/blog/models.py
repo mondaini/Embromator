@@ -1,8 +1,9 @@
 from django.db import models
 from djangotoolbox.fields import ListField, EmbeddedModelField
+
 class Post(models.Model):
     created_on = models.DateTimeField(auto_now_add=True, null=True)
-    title = models.CharField()
+    title = models.CharField(max_length=20)
     text = models.TextField()
     tags = ListField()
     comments = ListField(EmbeddedModelField('Comment'))
@@ -13,7 +14,7 @@ class Comment(models.Model):
 	text = models.TextField()
 
 class Author(models.Model):
-	name = models.CharField()
+	name = models.CharField(max_length=20)
 	email = models.EmailField()
 
 	def __unicode__(self):
