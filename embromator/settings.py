@@ -14,12 +14,12 @@ MANAGERS = ADMINS
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django_mongodb_engine', # Add 'postgresql_psycopg2', 'postgresql', 'mysql', 'sqlite3' or 'oracle'.
-        'NAME': 'heroku_app2797481',                      # Or path to database file if using sqlite3.
-        'USER': 'teste',                      # Not used with sqlite3.
-        'PASSWORD': 'testee',                  # Not used with sqlite3.
-        'HOST': 'ds029807.mongolab.com',                      # Set to empty string for localhost. Not used with sqlite3.
-        'PORT': 29807,                      # Set to empty string for default. Not used with sqlite3.
+        'ENGINE': 'django.db.backends.sqlite3', # Add 'postgresql_psycopg2', 'postgresql', 'mysql', 'sqlite3' or 'oracle'.
+        'NAME': 'embromator.sqlite',                      # Or path to database file if using sqlite3.
+        'USER': '',                      # Not used with sqlite3.
+        'PASSWORD': '',                  # Not used with sqlite3.
+        'HOST': '',                      # Set to empty string for localhost. Not used with sqlite3.
+        'PORT': '',                      # Set to empty string for default. Not used with sqlite3.
     }
 }
 
@@ -36,7 +36,7 @@ TIME_ZONE = 'America/Chicago'
 # http://www.i18nguy.com/unicode/language-identifiers.html
 LANGUAGE_CODE = 'en-us'
 
-SITE_ID = u'4f46e257a90d28035700001d'
+SITE_ID = 1
 
 # If you set this to False, Django will make some optimizations so as not
 # to load the internationalization machinery.
@@ -86,7 +86,7 @@ STATICFILES_FINDERS = (
 )
 
 # Make this unique, and don't share it with anybody.
-SECRET_KEY = ')klmvq0ui8v*o+d7&5=yb!fixby#5@qb=kc$+o3rq5*@!@$$!_'
+SECRET_KEY = 'o^&ytbo2#6!kd0qqf6$k)1+z+hy+cre#oz$$axdn53bbs@#s^*'
 
 # List of callables that know how to import templates from various sources.
 TEMPLATE_LOADERS = (
@@ -109,8 +109,7 @@ TEMPLATE_DIRS = (
     # Put strings here, like "/home/html/django_templates" or "C:/www/django/templates".
     # Always use forward slashes, even on Windows.
     # Don't forget to use absolute paths, not relative paths.
-    # LOCAL_FILE('templates'),
-    '/app/embromator/templates',
+    LOCAL_FILE('templates'),
 )
 
 INSTALLED_APPS = (
@@ -120,12 +119,10 @@ INSTALLED_APPS = (
     'django.contrib.sites',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    #'django.contrib.admindocs',
+    # Uncomment the next line to enable the admin:
     'django.contrib.admin',
-    'django_mongodb_engine',
-    'gunicorn',
-    'djangotoolbox',
-    'blog',
+    # Uncomment the next line to enable admin documentation:
+    # 'django.contrib.admindocs',
 )
 
 # A sample logging configuration. The only tangible logging

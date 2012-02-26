@@ -1,5 +1,4 @@
 from django.db import models
-from djangotoolbox.fields import ListField, EmbeddedModelField
 
 class Post(models.Model):
     created_on = models.DateTimeField(auto_now_add=True, null=True)
@@ -19,3 +18,13 @@ class Author(models.Model):
 
 	def __unicode__(self):
 		return '%s (%s)' % (self.name, self.email)
+
+class Tag(models.Model):
+	tag = models.CharField(max_length=20)
+    class Meta:
+        verbose_name = _('Tag')
+        verbose_name_plural = _('Tags')
+
+    def __unicode__(self):
+        pass
+    

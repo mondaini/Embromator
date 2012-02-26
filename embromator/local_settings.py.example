@@ -1,6 +1,32 @@
-DATABASES = {
-    'default': {
-        'ENGINE': 'django_mongodb_engine', 
-        'NAME': 'test',
-    }
-}
+from os.path import abspath
+LOCAL_FILE = abspath
+
+TEMPLATE_DIRS = (
+    # Put strings here, like "/home/html/django_templates" or "C:/www/django/templates".
+    # Always use forward slashes, even on Windows.
+    # Don't forget to use absolute paths, not relative paths. 
+    LOCAL_FILE('templates'),
+)
+
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django_mongodb_engine', 
+#         'NAME': 'test',
+#     }
+# }
+# SITE_ID = u'4f3fddbda90d2804d300001d'
+#SITE_ID = u'4f46e257a90d28035700001d'
+
+INSTALLED_APPS = (
+    'django.contrib.auth',
+    'django.contrib.contenttypes',
+    'django.contrib.sessions',
+    'django.contrib.sites',
+    'django.contrib.messages',
+    'django.contrib.staticfiles',
+    'django.contrib.admin',
+    # 'django.contrib.admindocs',
+    'django_nose',
+)
+
+TEST_RUNNER = 'django_nose.NoseTestSuiteRunner'
