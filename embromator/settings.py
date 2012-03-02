@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 # Django settings for embromator project.
 from os.path import abspath
 
@@ -15,7 +16,7 @@ MANAGERS = ADMINS
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3', # Add 'postgresql_psycopg2', 'postgresql', 'mysql', 'sqlite3' or 'oracle'.
-        'NAME': 'embromator.sqlite',                      # Or path to database file if using sqlite3.
+        'NAME': ('../')+'/sqlite.db',                      # Or path to database file if using sqlite3.
         'USER': '',                      # Not used with sqlite3.
         'PASSWORD': '',                  # Not used with sqlite3.
         'HOST': '',                      # Set to empty string for localhost. Not used with sqlite3.
@@ -103,7 +104,7 @@ MIDDLEWARE_CLASSES = (
     'django.contrib.messages.middleware.MessageMiddleware',
 )
 
-ROOT_URLCONF = 'embromator.urls'
+ROOT_URLCONF = 'urls'
 
 TEMPLATE_DIRS = (
     # Put strings here, like "/home/html/django_templates" or "C:/www/django/templates".
@@ -112,39 +113,54 @@ TEMPLATE_DIRS = (
     LOCAL_FILE('templates'),
 )
 
-INSTALLED_APPS = (
+INSTALLED_APPS = [
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.sites',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    # Uncomment the next line to enable the admin:
     'django.contrib.admin',
-    # Uncomment the next line to enable admin documentation:
-    # 'django.contrib.admindocs',
-)
+    'embromator.generator',
+    'embromator.blog',
+    # 'django.contrib.admindocs', 
+]
 
-# A sample logging configuration. The only tangible logging
-# performed by this configuration is to send an email to
-# the site admins on every HTTP 500 error.
+# A modified logging configuration as seen on 
+# http://groups.google.com/group/django-users/browse_thread/thread/4910cb6c3a7e8606
+#
 # See http://docs.djangoproject.com/en/dev/topics/logging for
 # more details on how to customize your logging configuration.
-LOGGING = {
-    'version': 1,
-    'disable_existing_loggers': False,
-    'handlers': {
-        'mail_admins': {
-            'level': 'ERROR',
-            'class': 'django.utils.log.AdminEmailHandler'
-        }
-    },
-    'loggers': {
-        'django.request': {
-            'handlers': ['mail_admins'],
-            'level': 'ERROR',
-            'propagate': True,
-        },
+LOGGING = { 
+    'version': 1, 
+    'disable_existing_loggers': False, 
+    'handlers': { 
+        'file_logging': { 
+            'level' : 'DEBUG', 
+            'class' : 'logging.handlers.RotatingFileHandler', 
+            'backupCount' : 5, 
+            'maxBytes': 5000000, 
+            'filename': ('../log/')+'django.log' 
+        }, 
+        'db_logging': { 
+            'level' : 'DEBUG', 
+            'class' : 'logging.handlers.RotatingFileHandler', 
+            'backupCount' : 5, 
+            'maxBytes': 5000000, 
+            'filename': ('../log/')+'django-db.log' 
+        }, 
+    }, 
+    'loggers': { 
+        'django' : { 
+            'handlers': ['file_logging'], 
+            'level' : 'DEBUG', 
+            'propagate' : False, 
+        }, 
+        'django.db' : { 
+            'handlers' : ['db_logging'], 
+            'level' : 'DEBUG', 
+            'propagate': False, 
+        }, 
     }
 }
 
