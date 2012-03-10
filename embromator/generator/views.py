@@ -16,5 +16,17 @@ class Controller():
             return False
 
     def parse_list_trechos(self, trechos=list):
-        # for trecho in list:
-        return True
+        dict_trechos = {}
+        arr_trechos = []
+        result = ''
+
+        for trecho in trechos:
+            dict_trechos[trecho.coluna] = trecho.text
+        
+        arr_trechos = sorted(dict_trechos)
+        result = dict_trechos[1]
+        arr_trechos.remove(1)
+        for key in arr_trechos:
+            result = ' '.join([result, dict_trechos[key]])    
+
+        return result
