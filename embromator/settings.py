@@ -123,7 +123,7 @@ INSTALLED_APPS = [
     'django.contrib.admin',
     'embromator.generator',
     'embromator.blog',
-    # 'django.contrib.admindocs', 
+    'south',
 ]
 
 # A modified logging configuration as seen on 
@@ -131,38 +131,39 @@ INSTALLED_APPS = [
 #
 # See http://docs.djangoproject.com/en/dev/topics/logging for
 # more details on how to customize your logging configuration.
+# TODO: Mudar isso antes de subir a APP pra cloud.
 LOGGING = { 
     'version': 1, 
     'disable_existing_loggers': False, 
+    'formatters': {
+        'verbose': {
+            'format': '%(levelname)s %(asctime)s %(module)s %(process)d %(thread)d %(message)s'
+        },
+        'simple': {
+            'format': '%(levelname)s %(message)s'
+        },
+    },
     'handlers': { 
-        'file_logging': { 
-            'level' : 'DEBUG', 
-            'class' : 'logging.handlers.RotatingFileHandler', 
-            'backupCount' : 5, 
-            'maxBytes': 5000000, 
-            'filename': ('../log/')+'django.log' 
-        }, 
-        'db_logging': { 
-            'level' : 'DEBUG', 
-            'class' : 'logging.handlers.RotatingFileHandler', 
-            'backupCount' : 5, 
-            'maxBytes': 5000000, 
-            'filename': ('../log/')+'django-db.log' 
-        }, 
+        'null': {
+            'level':'DEBUG',
+            'class':'django.utils.log.NullHandler',
+        },
+        'console':{
+            'level':'DEBUG',
+            'class':'logging.StreamHandler',
+            'formatter': 'simple'
+        },
     }, 
     'loggers': { 
-        'django' : { 
-            'handlers': ['file_logging'], 
-            'level' : 'DEBUG', 
-            'propagate' : False, 
-        }, 
-        'django.db' : { 
-            'handlers' : ['db_logging'], 
-            'level' : 'DEBUG', 
-            'propagate': False, 
-        }, 
+        'django': {
+            'handlers':['null'],
+            'propagate': True,
+            'level':'INFO',
+        },
     }
 }
+
+
 
 try:
     from local_settings import *
