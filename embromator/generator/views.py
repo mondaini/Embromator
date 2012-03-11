@@ -1,5 +1,6 @@
 # -*- coding: utf-8 -*-
 from embromator.generator import models
+import random
 
 class Controller():
     
@@ -30,3 +31,20 @@ class Controller():
             result = ' '.join([result, dict_trechos[key]])    
 
         return result
+
+    def get_random_trechos_list(self):
+        lista = []
+        for i in range(4):
+            item = self.get_random_trecho_object(coluna=i+1)
+            lista.append(item)
+        return lista
+
+    def get_random_trecho_object(self, coluna):
+        lista = []
+        try:
+            lista = models.Trecho.objects.filter(coluna=coluna)
+            item = random.randrange(0, len(lista))
+            return lista[item]
+        except Exception, e:
+            raise e
+        return

@@ -1,10 +1,4 @@
 # -*- coding: utf-8 -*-
-"""
-This file demonstrates writing tests using the unittest module. These will pass
-when you run "manage.py test".
-
-Replace this with more appropriate tests for your application.
-"""
 from embromator.generator import models
 from embromator.generator import views
 from django.test import TestCase
@@ -59,3 +53,18 @@ class EmbromatorTests(TestCase):
         response = self.controller.parse_list_trechos(trechos=self.trecho_misturado)
         expected = 'Caros colegas, a execução deste projeto nos obriga à análise das nossas opções de desenvolvimento futuro.'
         self.assertEqual(response, expected)
+
+    def test_retorna_lista_com_4_trechos_aleatorios(self):
+        def testa_response(response):
+            if response:
+                for i in range(4):
+                    self.assertEqual(i+1, response[i].coluna)
+            else:
+                return self.fail('Não gerou lista de trechos.')
+        response = self.trecho
+        
+        """Mock"""
+        testa_response(response)
+        
+        """Uso real"""
+        #testa_response(self.controller.get_random_trechos_list())
