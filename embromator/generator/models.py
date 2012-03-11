@@ -1,9 +1,9 @@
 from django.db import models
 
-class Trecho(models.Model):
+class Fragment(models.Model):
     text = models.CharField(max_length=50)
-    coluna = models.IntegerField()
+    column = models.IntegerField()
 
     class Meta:
-        verbose_name = 'Trecho'
-        verbose_name_plural = 'Trechos'
+        verbose_name = 'Fragment'
+        verbose_name_plural = 'Fragments'

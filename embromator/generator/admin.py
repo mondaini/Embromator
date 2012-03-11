@@ -1,10 +1,10 @@
 from django.contrib import admin
-from generator.models import Trecho
+from generator.models import Fragment
 
 
-class TrechoAdmin(admin.ModelAdmin):
-    fields = ('text', 'coluna')
-    list_display = ('text', 'coluna')
-    list_filter = ('coluna',)
+class FragmentAdmin(admin.ModelAdmin):
+    fields = ('text', 'column')
+    list_display = ('text', 'column')
+    list_filter = ('column',)
 
-admin.site.register(Trecho, TrechoAdmin)
+admin.site.register(Fragment, FragmentAdmin)
