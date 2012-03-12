@@ -163,7 +163,9 @@ LOGGING = {
     }
 }
 
-
+FIXTURE_DIRS = (
+    LOCAL_FILE('fixtures/'),
+)
 
 try:
     from local_settings import *

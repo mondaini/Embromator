@@ -67,4 +67,4 @@ class EmbromatorTests(TestCase):
         test_responses(response)
         
         """The real thing"""
-        #test_responses(self.controller.get_random_fragments_list())
+        test_responses(self.controller.get_random_fragments_list())
