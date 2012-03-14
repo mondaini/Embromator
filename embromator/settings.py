@@ -1,6 +1,5 @@
 # -*- coding: utf-8 -*-
 # Django settings for embromator project.
-from os.path import abspath
 
 DEBUG = True
 TEMPLATE_DEBUG = DEBUG
