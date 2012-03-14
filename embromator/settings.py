@@ -124,6 +124,7 @@ INSTALLED_APPS = [
     'embromator.generator',
     'embromator.blog',
     'south',
+    'gunicorn',
 ]
 
 # A modified logging configuration as seen on 
