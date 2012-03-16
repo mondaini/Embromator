@@ -168,7 +168,7 @@ FIXTURE_DIRS = (
     LOCAL_FILE('fixtures/'),
 )
 
-from local_settings import *
-# try:
-# except:
-#     pass
+try:
+    from local_settings import *
+except:
+    pass
