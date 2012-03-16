@@ -1,4 +1,5 @@
 # -*- coding: utf-8 -*-
+from django.shortcuts import render_to_response
 from embromator.generator import models
 import random
 
@@ -48,3 +49,10 @@ class Controller():
         except Exception, e:
             raise e
         return
+
+def sentences(self, request):
+    controller = Controller()
+    sentences_list = []
+    for i in range(int(request)):
+        sentences_list.append(controller.get_random_fragments_list())
+    return render_to_response('embromator/home.html', {'sentences_list': sentences_list})

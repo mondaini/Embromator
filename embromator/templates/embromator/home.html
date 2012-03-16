@@ -1,0 +1,13 @@
+<html>
+<head>
+	<title>Embromator - generator</title>
+</head>
+<body>
+{% for fragments_list in sentences_list %}
+	{% for fragment in fragments_list %}
+		{{ fragment.text }}
+	{% endfor %}
+	<br/>
+{% endfor %}
+</body>
+</html>
