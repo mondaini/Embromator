@@ -1,13 +1,16 @@
-<html>
-<head>
+{% extends 'base.html' %}
+
+{% block head %}
+	{{block.super}}
 	<title>Embromator - generator</title>
-</head>
-<body>
-{% for fragments_list in sentences_list %}
-	{% for fragment in fragments_list %}
-		{{ fragment.text }}
+{% endblock head %}
+
+{% block body %}
+	{{ block.super }}
+	{% for fragments_list in sentences_list %}
+		{% for fragment in fragments_list %}
+			{{ fragment.text }}
+		{% endfor %}
+		<br/>
 	{% endfor %}
-	<br/>
-{% endfor %}
-</body>
-</html>
+{% endblock body %}
