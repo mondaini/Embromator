@@ -1,6 +1,8 @@
+# -*- coding: utf-8 -*-
 from django.conf.urls.defaults import patterns, include, url
 from django.views.generic import ListView, DetailView
 from blog.models import Post
+import settings
 
 # Uncomment the next two lines to enable the admin:
 from django.contrib import admin
@@ -10,6 +12,8 @@ post_detail = DetailView.as_view(model=Post)
 post_list = ListView.as_view(model=Post)
 
 urlpatterns = patterns('',
+    (r'^media/(?P<path>.*)$', 'django.views.static.serve', {'document_root': settings.MEDIA_ROOT}),
+
     # TODO
     #Authentication
     #(r'^auth', ), #TODO: Set method call
