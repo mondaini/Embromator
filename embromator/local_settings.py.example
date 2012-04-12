@@ -1,6 +1,8 @@
 from os.path import abspath
 LOCAL_FILE = abspath
 
+MEDIA_ROOT = LOCAL_FILE('media')
+
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3', # Add 'postgresql_psycopg2', 'postgresql', 'mysql', 'sqlite3' or 'oracle'.
