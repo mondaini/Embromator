@@ -4,3 +4,5 @@ venv
 local_settings.py
 sqlite.db
 *.log
+node_modules
+.idea
