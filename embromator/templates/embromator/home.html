@@ -7,10 +7,11 @@
 
 {% block body %}
 	{{ block.super }}
+	<p>
 	{% for fragments_list in sentences_list %}
 		{% for fragment in fragments_list %}
 			{{ fragment.text }}
 		{% endfor %}
-		<br/>
 	{% endfor %}
+	</p>
 {% endblock body %}

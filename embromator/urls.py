@@ -20,8 +20,8 @@ urlpatterns = patterns('',
 
     # TODO
     # Embromator
-    (r'^embromator/generate/sentences/(\d+)/$', 'generator.views.sentences'), #TODO: Set method call
-    # (r'^embromator/generate/paragraphs/\d+', ),#TODO: Set method call 
+    (r'^generate/sentences/(\d+)/$', 'generator.views.sentences'),  # TODO: Set method call
+    # (r'^embromator/generate/paragraphs/\d+', ),  # TODO: Set method call
 
     #Admin
     url(r'^admin/', include(admin.site.urls)),

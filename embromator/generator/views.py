@@ -3,8 +3,9 @@ from django.shortcuts import render_to_response
 from embromator.generator import models
 import random
 
+
 class Controller():
-    
+
     def parse_string_fragments(self, *args):
         try:
             return ' '.join(i if i is not None else '' for i in args)
@@ -24,19 +25,19 @@ class Controller():
 
         for fragment in fragments:
             dict_fragments[fragment.column] = fragment.text
-        
+
         arr_fragments = sorted(dict_fragments)
         result = dict_fragments[1]
         arr_fragments.remove(1)
         for key in arr_fragments:
-            result = ' '.join([result, dict_fragments[key]])    
+            result = ' '.join([result, dict_fragments[key]])
 
         return result
 
     def get_random_fragments_list(self):
         lista = []
         for i in range(4):
-            item = self.get_random_fragment_object(column=i+1)
+            item = self.get_random_fragment_object(column=i + 1)
             lista.append(item)
         return lista
 
@@ -50,9 +51,11 @@ class Controller():
             raise e
         return
 
+
 def sentences(self, request):
     controller = Controller()
     sentences_list = []
     for i in range(int(request)):
         sentences_list.append(controller.get_random_fragments_list())
+
     return render_to_response('embromator/home.html', {'sentences_list': sentences_list})
