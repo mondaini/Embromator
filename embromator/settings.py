@@ -122,7 +122,6 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'django.contrib.admin',
     'embromator.generator',
-    'embromator.blog',
     'south',
     'gunicorn',
 ]
