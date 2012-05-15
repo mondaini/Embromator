@@ -2,7 +2,7 @@
 # Django settings for embromator project.
 from os.path import abspath
 
-DEBUG = True
+DEBUG = False
 TEMPLATE_DEBUG = DEBUG
 
 ADMINS = (
