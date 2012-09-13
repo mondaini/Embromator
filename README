@@ -10,3 +10,6 @@ Inspiration:
 Installation:
   Run:
   $ pip install -r requirements.txt
+
+Live Demo:
+  http://embromator.herokuapp.com/generate/sentences/30/
