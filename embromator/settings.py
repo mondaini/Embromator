@@ -121,7 +121,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'django.contrib.admin',
-    'embromator.generator',
+    'generator',
     'south',
     'gunicorn',
 ]
