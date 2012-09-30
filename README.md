@@ -1,15 +1,23 @@
-Embromator - Pseudo 'Lorem Ipsum' generator based on:
+Embromator - Pseudo 'Lorem Ipsum' Generator
+===========================================
 
-Dependencies:
+
+### Dependencies:
 - Django 1.4
 - Python 2.7
 
-Inspiration:
-- LeroLero.com
+### Inspired by:
+ - LeroLero.com
 
+### How to install:
 Installation:
-  Run:
-  $ pip install -r requirements.txt
+> <code> $ pip install -r requirements.txt </code>
 
-Live Demo:
-  http://embromator.herokuapp.com/generate/sentences/30/
+Run:
+> <code> $ python manage.py runserver </code>
+
+
+### Live Demo:
+> http://embromator.herokuapp.com/generate/sentences/30/
+
+### Did you like it? Fork it and make a Pull Request!
